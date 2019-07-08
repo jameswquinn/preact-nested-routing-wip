@@ -1,0 +1,3 @@
+const html = `Richard
+HIIT
+Not just another personal trainer, Richard Hart brings a diverse wealth of knowledge to every class that he teaches. With over 8 years of experience and member of elite running club Track Mafia, don’t let Richard’s cool and calm personality trick you into thinking you will get away with an easy ride. Combining strength and cardio exercises to one of the best playlists featuring hip hop, d&b and jungle, you will reach new levels with every class that you attend.`
