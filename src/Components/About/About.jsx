@@ -45,7 +45,7 @@ export default class About extends Component {
               data-srcset={item.image.srcSet}
               alt=""
             />
-            <Link href={`/terms/${item.id}`}>{item.heading}</Link>
+            <Link href={`/terms?q=${item.id}`}>{item.heading}</Link>
           </figure>
         ))}
       </main>
