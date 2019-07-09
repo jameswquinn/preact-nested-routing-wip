@@ -7,7 +7,6 @@ import AsyncRoute from 'preact-async-route';
 import "./index.css";
 
 import Home from "./Components/Home/Home";
-import Terms from "./Components/Terms/Terms";
 
 const NODE = document.body.querySelector("#root");
 let new_scroll_position = 0;
@@ -69,11 +68,16 @@ const App = () => (
     <Navbar />
     <Router>
       <Home path="/" />
-      <Terms path="/terms/:optional?/:params?" />
       <AsyncRoute
         path="/about"
         getComponent={() =>
           import('./Components/About/About.jsx').then(module => module.default)
+        }
+      />
+      <AsyncRoute
+        path="/terms/:optional?/:params?"
+        getComponent={() =>
+          import('./Components/Terms/Terms.jsx').then(module => module.default)
         }
       />
 

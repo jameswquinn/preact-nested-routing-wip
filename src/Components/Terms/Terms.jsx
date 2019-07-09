@@ -26,20 +26,17 @@ export default class Terms extends Component {
   }
 
   render({ url, q }) {
-    let item = PlayerAPI.get(parseInt(q))
+    const item = PlayerAPI.get(parseInt(q))
     return (
       <main>
-        <Helmet title="My Title Hay James Yet Another Page" />
-
-        <h1>The q is: {q}</h1>
-        
+        <Helmet title="My Title Hay James Yet Another Page" />        
         <h1>{item.heading}</h1>
         <h1>{item.body}</h1>
-        <h3>{PlayerAPI.get(parseInt(4)).image}</h3>
         <img
+          className="lazy"
           data-sizes="auto"
           src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
-          srcset={item.image.srcSet}
+          data-srcset={item.image.srcSet}
           alt=""
         />
 
