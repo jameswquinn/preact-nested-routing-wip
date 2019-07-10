@@ -1,10 +1,9 @@
+/** @jsx h */
 import { h, Component } from "preact";
 import { Link } from 'preact-router/match';
 import Helmet from "preact-helmet";
-
-import * as timeago from "timeago.js";
 import lozad from "lozad";
-import PlayerAPI from "../../api";
+import PlayerAPI from "../api";
 
 export default class Terms extends Component {
   componentDidMount() {
@@ -19,31 +18,25 @@ export default class Terms extends Component {
     observer.observe();
   }
 
-  componentDidUpdate() { }
-
-  componentWillUnmount() {
-
-  }
-
   render({ url, q }) {
-    const item = PlayerAPI.get(parseInt(q))
+    let item = PlayerAPI.get(parseInt(q));
     return (
-      <main>
+      <main class="container">
         <Helmet title="My Title Hay James Yet Another Page" />        
-        <h1>{item.heading}</h1>
-        <h1>{item.body}</h1>
-        <img
-          className="lazy"
-          data-sizes="auto"
-          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
-          data-srcset={item.image.srcSet}
-          alt=""
-        />
-
-
-        <img src="{require.(PlayerAPI.get(parseInt(4)).image).src}" alt=""/>
-
-
+        <figure>
+          <figcaption>
+            <h3>{item.heading}</h3>
+            <h4>{item.subHeading}</h4>
+            <p>{item.body}</p>
+          </figcaption>
+          <img
+            class="lazy"
+            data-sizes="auto"
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
+            srcset={item.image.srcSet}
+            alt=""
+          />
+          </figure>
         <Link href="/about">Back</Link>
       </main>
     );

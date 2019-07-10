@@ -1,33 +1,22 @@
+/** @jsx h */
 import { h, Component } from "preact";
 import Helmet from "preact-helmet";
-
 import * as timeago from "timeago.js";
 import lozad from "lozad";
 
-const responsiveImage = require("../../img/four.jpg?min=320,max=1400,steps=6");
-const five = require("../../img/Cristina-Hoch-Photography.jpg?min=320,max=1400,steps=6");
-
 export default class Home extends Component {
   componentDidMount() {
-    lozad(".lazy", {
+    const observer = lozad(".lazy", {
       loaded: function (el) {
-        // Custom implementation on a loaded element
         el.classList.add("is-loaded");
       },
-      rootMargin: "10px 0px", // syntax similar to that of CSS Margin
-      threshold: 0.4 // ratio of element convergence
-    }).observe();
-
-    //Fixed change to opacity on scroll
+      rootMargin: "10px 0px",
+      threshold: 0.4
+    });
+    observer.observe();
     window.addEventListener("scroll", this.handleOpacity);
-    //Parallax on scroll event
     window.addEventListener('scroll', this.handleParallax);
-
     document.getElementById("intro").play();
-  }
-
-  componentDidUpdate() {
-
   }
 
   componentWillUnmount() {
@@ -43,7 +32,6 @@ export default class Home extends Component {
       element.style.transform = 'translate(0, ' + pos + 'px)';
     });
   }
-
 
   handleOpacity = () => {
     const target = document.querySelectorAll('[data-opacity]')
@@ -170,9 +158,9 @@ export default class Home extends Component {
             </symbol>
             <symbol id="icon-Personal__Best" viewBox="0 0 261 32" fill="#fff">
               <title>Personal Best</title>
-              <path d='M183.467 18.133h-1.867v2.933h1.867c1.067 0 1.6-0.533 1.6-1.333 0-1.067-0.533-1.6-1.6-1.6z'/>
-              <path d='M166.667 0.8v31.733h93.6v-31.733h-93.6zM183.733 23.2h-4.533v-11.733h4.267c2.4 0 3.733 1.333 3.733 3.2 0 1.067-0.8 2.133-1.867 2.4 1.067 0.267 2.133 1.333 2.133 2.667 0 1.867-1.333 3.467-3.733 3.467zM205.6 13.6h-5.067v2.667h4.533v1.867h-4.533v2.667h5.067v2.4h-7.2v-11.733h7.2v2.133zM220.8 23.2c-3.2 0-4.533-1.867-4.8-3.467l2.133-0.533c0.267 1.067 1.067 2.133 2.667 2.133 1.067 0 1.867-0.533 1.867-1.6 0-0.533-0.533-1.067-1.333-1.333l-1.867-0.267c-1.867-0.267-2.933-1.6-2.933-3.467s1.867-3.467 4-3.467c2.933 0 4 1.6 4.267 2.933l-2.133 0.533c0-0.533-0.533-1.6-2.133-1.6-1.067 0-1.867 0.8-1.867 1.6 0 0.533 0.533 1.067 1.333 1.333l1.6 0.267c2.133 0.533 3.467 1.867 3.467 3.467 0 1.867-1.6 3.467-4.267 3.467zM244.533 13.6h-3.733v9.6h-2.4v-9.6h-3.733v-2.133h9.867v2.133zM248 23.2c-0.8 0-1.333-0.8-1.333-1.6s0.533-1.333 1.333-1.333c1.067 0 1.6 0.533 1.6 1.333s-0.533 1.6-1.6 1.6z'/>
-              <path d='M184.8 14.667c0-0.8-0.533-1.333-1.6-1.333h-1.6v2.933h1.6c1.067 0 1.6-0.533 1.6-1.6zM5.067 11.467h-4.267v11.733h2.133v-4.533h2.133c2.4 0 3.733-1.6 3.733-3.733s-1.333-3.467-3.733-3.467zM4.8 16.8h-1.867v-3.467h1.867c1.067 0 1.867 0.8 1.867 1.6 0 1.067-0.8 1.867-1.867 1.867zM19.467 23.2h7.467v-2.4h-5.067v-2.667h4.533v-1.867h-4.533v-2.667h5.067v-2.133h-7.467zM46.4 14.933c0-1.867-1.333-3.467-3.733-3.467h-4.533v11.733h2.4v-4.533h1.067l2.4 4.533h2.4l-2.4-4.8c1.6-0.533 2.4-1.867 2.4-3.467zM42.4 16.533h-1.867v-3.2h1.867c1.067 0 1.6 0.8 1.6 1.6 0 1.067-0.533 1.6-1.6 1.6zM62.133 16.267l-1.6-0.267c-0.8-0.267-1.333-0.8-1.333-1.333 0-0.8 0.8-1.6 1.867-1.6 1.6 0 2.133 1.067 2.133 1.6l2.133-0.533c-0.267-1.333-1.333-2.933-4.267-2.933-2.133 0-4 1.6-4 3.467s1.067 3.2 2.933 3.467l1.6 0.267c1.067 0.267 1.6 0.8 1.6 1.333 0 1.067-0.8 1.6-1.867 1.6-1.867 0-2.667-1.067-2.667-2.133l-2.133 0.533c0.267 1.6 1.6 3.467 4.8 3.467 2.667 0 4-1.6 4-3.467 0-1.6-1.067-2.933-3.2-3.467zM81.6 11.2c-3.2 0-5.867 2.133-5.867 6.133 0 3.733 2.667 5.867 5.867 5.867s6.133-2.133 6.133-5.867c0-4-2.933-6.133-6.133-6.133zM81.6 21.067c-1.867 0-3.733-1.333-3.733-3.733s1.867-4 3.733-4 3.733 1.333 3.733 4-1.867 3.733-3.733 3.733zM106.4 19.2l-5.067-7.733h-2.667v11.733h2.133v-8.533l5.333 8.533h2.4v-11.733h-2.133zM123.467 11.467l-4.533 11.733h2.4l1.067-2.667h4.8l1.067 2.667h2.4l-4.533-11.733h-2.667zM123.2 18.4l1.6-4.533 1.6 4.533h-3.2zM143.467 11.467h-2.4v11.733h7.467v-2.4h-5.067zM154.933 20.267c-0.8 0-1.6 0.533-1.6 1.333s0.8 1.6 1.6 1.6 1.6-0.8 1.6-1.6-0.8-1.333-1.6-1.333z'/>
+              <path d='M183.467 18.133h-1.867v2.933h1.867c1.067 0 1.6-0.533 1.6-1.333 0-1.067-0.533-1.6-1.6-1.6z' />
+              <path d='M166.667 0.8v31.733h93.6v-31.733h-93.6zM183.733 23.2h-4.533v-11.733h4.267c2.4 0 3.733 1.333 3.733 3.2 0 1.067-0.8 2.133-1.867 2.4 1.067 0.267 2.133 1.333 2.133 2.667 0 1.867-1.333 3.467-3.733 3.467zM205.6 13.6h-5.067v2.667h4.533v1.867h-4.533v2.667h5.067v2.4h-7.2v-11.733h7.2v2.133zM220.8 23.2c-3.2 0-4.533-1.867-4.8-3.467l2.133-0.533c0.267 1.067 1.067 2.133 2.667 2.133 1.067 0 1.867-0.533 1.867-1.6 0-0.533-0.533-1.067-1.333-1.333l-1.867-0.267c-1.867-0.267-2.933-1.6-2.933-3.467s1.867-3.467 4-3.467c2.933 0 4 1.6 4.267 2.933l-2.133 0.533c0-0.533-0.533-1.6-2.133-1.6-1.067 0-1.867 0.8-1.867 1.6 0 0.533 0.533 1.067 1.333 1.333l1.6 0.267c2.133 0.533 3.467 1.867 3.467 3.467 0 1.867-1.6 3.467-4.267 3.467zM244.533 13.6h-3.733v9.6h-2.4v-9.6h-3.733v-2.133h9.867v2.133zM248 23.2c-0.8 0-1.333-0.8-1.333-1.6s0.533-1.333 1.333-1.333c1.067 0 1.6 0.533 1.6 1.333s-0.533 1.6-1.6 1.6z' />
+              <path d='M184.8 14.667c0-0.8-0.533-1.333-1.6-1.333h-1.6v2.933h1.6c1.067 0 1.6-0.533 1.6-1.6zM5.067 11.467h-4.267v11.733h2.133v-4.533h2.133c2.4 0 3.733-1.6 3.733-3.733s-1.333-3.467-3.733-3.467zM4.8 16.8h-1.867v-3.467h1.867c1.067 0 1.867 0.8 1.867 1.6 0 1.067-0.8 1.867-1.867 1.867zM19.467 23.2h7.467v-2.4h-5.067v-2.667h4.533v-1.867h-4.533v-2.667h5.067v-2.133h-7.467zM46.4 14.933c0-1.867-1.333-3.467-3.733-3.467h-4.533v11.733h2.4v-4.533h1.067l2.4 4.533h2.4l-2.4-4.8c1.6-0.533 2.4-1.867 2.4-3.467zM42.4 16.533h-1.867v-3.2h1.867c1.067 0 1.6 0.8 1.6 1.6 0 1.067-0.533 1.6-1.6 1.6zM62.133 16.267l-1.6-0.267c-0.8-0.267-1.333-0.8-1.333-1.333 0-0.8 0.8-1.6 1.867-1.6 1.6 0 2.133 1.067 2.133 1.6l2.133-0.533c-0.267-1.333-1.333-2.933-4.267-2.933-2.133 0-4 1.6-4 3.467s1.067 3.2 2.933 3.467l1.6 0.267c1.067 0.267 1.6 0.8 1.6 1.333 0 1.067-0.8 1.6-1.867 1.6-1.867 0-2.667-1.067-2.667-2.133l-2.133 0.533c0.267 1.6 1.6 3.467 4.8 3.467 2.667 0 4-1.6 4-3.467 0-1.6-1.067-2.933-3.2-3.467zM81.6 11.2c-3.2 0-5.867 2.133-5.867 6.133 0 3.733 2.667 5.867 5.867 5.867s6.133-2.133 6.133-5.867c0-4-2.933-6.133-6.133-6.133zM81.6 21.067c-1.867 0-3.733-1.333-3.733-3.733s1.867-4 3.733-4 3.733 1.333 3.733 4-1.867 3.733-3.733 3.733zM106.4 19.2l-5.067-7.733h-2.667v11.733h2.133v-8.533l5.333 8.533h2.4v-11.733h-2.133zM123.467 11.467l-4.533 11.733h2.4l1.067-2.667h4.8l1.067 2.667h2.4l-4.533-11.733h-2.667zM123.2 18.4l1.6-4.533 1.6 4.533h-3.2zM143.467 11.467h-2.4v11.733h7.467v-2.4h-5.067zM154.933 20.267c-0.8 0-1.6 0.533-1.6 1.333s0.8 1.6 1.6 1.6 1.6-0.8 1.6-1.6-0.8-1.333-1.6-1.333z' />
             </symbol>
             <symbol id="icon-Branding__Logo" viewBox="0 0 33 32" preserveAspectRatio="none">
               <title>Branding Logo</title>
@@ -181,41 +169,40 @@ export default class Home extends Component {
               <path d="M16.75 27.038v0.462h-5.887l0.029 0.292c0.083 0.817 0.433 1.375 1.058 1.671 0.242 0.117 0.333 0.137 0.7 0.154 0.783 0.033 1.321-0.233 1.617-0.817l0.071-0.133h1.787v-0.25l1.133 0.008 1.129 0.012 0.054 0.262c0.133 0.642 0.488 0.904 1.367 1.012 0.446 0.054 0.883 0.025 1.25-0.087 0.442-0.137 0.608-0.329 0.608-0.696 0-0.354-0.183-0.546-0.692-0.717-0.142-0.046-0.758-0.217-1.375-0.375s-1.262-0.342-1.433-0.4c-0.475-0.171-0.942-0.429-1.192-0.658l-0.225-0.204v0.462z"></path>
             </symbol>
           </defs>
-          </svg>
+        </svg>
         <Helmet title="My Title Hay James" />
         <header class="video-header">
-          <video id="intro" src={require("../../video/intro2.mp4")} autoplay loop playsinline muted poster="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="></video>
+          <video id="intro" src={require("../video/intro.mp4")} autoplay loop playsinline muted poster="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="></video>
           <div class="viewport-header viewport-header__transform">
-            <svg data-opacity="100" style="background-color:wheat;position:absolute;top:0;left:0;width:80px;height:80px;fill:#000"><use xlinkhref="#icon-Branding__Logo"></use></svg> 
+            <svg data-opacity="100" style="background-color:wheat;position:absolute;top:0;left:0;width:80px;height:80px;fill:#000"><use xlinkhref="#icon-Branding__Logo"></use></svg>
             <svg><use xlinkhref="#icon-Branding__Logo"></use></svg>
             <div data-opacity="100" class="masthead-arrow"></div>
             <div style="color:white;width:300px;height:80vh;margin:auto;font-size:100px;font-weight:bolder;text-align:center;">Hello</div>
           </div>
         </header>
 
-          <div class="splash__overlay">
-            <div class="hero">
-              <svg><use xlinkhref="#icon-Personal__Best"></use></svg>
-              <div id="lead">Dedicated, passionate, intelligent: welcome to bespoke personal training.</div>
-            </div>
+        <div class="splash__overlay">
+          <div class="hero">
+            <svg><use xlinkhref="#icon-Personal__Best"></use></svg>
+            <div id="lead">Dedicated, passionate, intelligent: welcome to bespoke personal training.</div>
           </div>
-          <img
-            style="z-index:-1"
-            className="lazy"
-            data-sizes="auto"
-            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 650 300'%3E%3C/svg%3E"
-            data-srcset={require("../../img/strength-training-exercise-routines.jpg").srcSet}
-            alt=""
-          />
-          <svg class="icon"><use xlinkhref="#icon-Cardio"></use></svg>
-          <svg class="icon"><use xlinkhref="#icon-core"></use></svg>
-          <svg class="icon"><use xlinkhref="#icon-Endurance"></use></svg>
-          <svg class="icon"><use xlinkhref="#icon-Nutrition"></use></svg>
-          <svg class="icon"><use xlinkhref="#icon-Strength"></use></svg>
-          <svg class="icon"><use xlinkhref="#icon-Toning"></use></svg>
-          <svg class="icon"><use xlinkhref="#icon-Schedule"></use></svg>
-          <svg width="100" height="100"><use xlinkhref="#icon-Branding__Logo"></use></svg> 
- 
+        </div>
+        <img
+          style="z-index:-1"
+          class="lazy"
+          data-sizes="auto"
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 650 300'%3E%3C/svg%3E"
+          data-srcset={require("../img/strength-training-exercise-routines.jpg").srcSet}
+          alt=""
+        />
+        <svg class="icon"><use xlinkhref="#icon-Cardio"></use></svg>
+        <svg class="icon"><use xlinkhref="#icon-core"></use></svg>
+        <svg class="icon"><use xlinkhref="#icon-Endurance"></use></svg>
+        <svg class="icon"><use xlinkhref="#icon-Nutrition"></use></svg>
+        <svg class="icon"><use xlinkhref="#icon-Strength"></use></svg>
+        <svg class="icon"><use xlinkhref="#icon-Toning"></use></svg>
+        <svg class="icon"><use xlinkhref="#icon-Schedule"></use></svg>
+        <svg width="100" height="100"><use xlinkhref="#icon-Branding__Logo"></use></svg>
       </main>
     );
   }

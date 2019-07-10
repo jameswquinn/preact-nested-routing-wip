@@ -12,21 +12,24 @@ const PlayerAPI = {
     },
     {
       id: 2,
-      heading: `I gotta piss`,
-      body: `The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee. `,
-      image: ``
+      heading: `Annie K`,
+      subHeading: `Cycle`,
+      body: `One of our Another_Space originals, Annie Kitchen, has been part of our family/journey since the very beginning. Starting in the Cycle_Space and now crossing over into the HIIT_Space Annie combines her stamina from the bike into one intense workout in the HIIT_Studio. Chatty and enthusiastic, Annie will make sure she keeps you on track with your goals to get you fighting fit and become the best version of yourself.`,
+      image: require("./img/AS2-Annie-K-3-2000x1472.jpg?min=320,max=1400,steps=6")
     },
     {
       id: 3,
-      heading: `Are you ready for the truth?`,
-      body: `Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.`,
-      image: require("./img/1qujw7.jpg?min=320,max=1400,steps=6")
+      heading: `Mark`,
+      subHeading: `Cycle`,
+      body: `Good enough for the likes of Beyonce and Taylor Swift, Mark is a professional choreographer known for his dynamic and athletic style of training. His commitment to music will keep you cycling to the beat and will leave you feeling empowered. Watch out for his double time though, it’s intense to say the least!`,
+      image: require("./img/AS2-Mark-2-2000x1472.jpg?min=320,max=1400,steps=6")
     },
     {
       id: 4,
-      heading: `Is she dead, yes or no?`,
-      body: `You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man.`,
-      image: `../../img/Samuel-L.-Jackson-with-John-Travolta-in-Pulp-Fiction..jpg?min=320,max=1400,steps=6`
+      heading: `Jamie`,
+      subHeading: `HIIT`,
+      body: `Authentically trained in traditional Muay Thai, professional fighter Jamie-Ray has the skills and desire to get you into shape. With a background in dancing allowing him to work with celebrities such as Alexandra Burke and Mel C, plus his martial arts expertise, there’s pretty much nothing Jamie can’t do. He has a passion for sharing his knowledge and will drive you to success.`,
+      image: require("./img/AS-Jamie-2-2000x1472.jpg?min=320,max=1400,steps=6")
     }
   ],
   all: function() {
