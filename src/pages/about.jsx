@@ -19,6 +19,11 @@ export default class About extends Component {
       threshold: 0.4 // ratio of element convergence
     });
     observer.observe();
+    document.querySelector("#branding__logo").classList.remove("branding__logo-alt");
+  }
+
+  componentWillUnmount() {
+    document.querySelector("#branding__logo").classList.add("branding__logo-alt");
   }
 
   render() {
@@ -29,6 +34,7 @@ export default class About extends Component {
         {PlayerAPI.all().map(item => (
           <figure key={item.id} >
             <figcaption>
+              <h3>{item.id}</h3>
               <h3>{item.heading}</h3>
               <h4>{item.subHeading}</h4>
             </figcaption>

@@ -16,6 +16,11 @@ export default class Terms extends Component {
       threshold: 0.4 // ratio of element convergence
     });
     observer.observe();
+    document.querySelector("#branding__logo").classList.remove("branding__logo-alt");
+  }
+
+  componentWillUnmount() {
+    document.querySelector("#branding__logo").classList.add("branding__logo-alt");
   }
 
   render({ url, q }) {
